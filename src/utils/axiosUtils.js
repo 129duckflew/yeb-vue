@@ -6,8 +6,14 @@ import router from "../router"
  * 请求拦截器
  */
 axios.interceptors.request.use(
-
-
+  config=>{
+      let token = sessionStorage.getItem('tokenStr');
+      config.headers['Authorization']=token;
+      return config;
+  },
+  error => {
+    console.log(error)
+  }
 );
 
 
@@ -74,3 +80,30 @@ export const postRequest=(url,params)=>{
 
     })
 };
+export const deleteRequest=(url,params)=>{
+  return axios({
+    method:'delete',
+    url: `${base}${url}`,
+    data:params
+
+  })
+};
+export const getRequest=(url,params)=>{
+  return axios({
+    method:'get',
+    url: `${base}${url}`,
+    data:params
+
+  })
+};
+
+export const putRequest=(url,params)=>{
+  return axios({
+    method:'put',
+    url: `${base}${url}`,
+    data:params
+
+  })
+};
+
+

@@ -21,8 +21,6 @@
 </template>
 
 <script>
-    import {postRequest} from "../utils/axiosUtils";
-
     export default {
         name: "Login",
         data() {
@@ -73,12 +71,14 @@
                   /**
                    * 发送登录请求
                    */
-                  postRequest('/login',this.loginForm).then(resp=>{
+                  this.postRequest('/login',this.loginForm).then(resp=>{
                     if (resp){
                       /**
                        * 响应存在
                        */
-                      console.log(resp)
+                      window.sessionStorage.setItem('tokenStr',resp.obj.tokenHead+resp.obj.token);
+                      console.log(resp);
+                      this.$router.replace({name:'Home'})
                     }
                     else {
                     }
