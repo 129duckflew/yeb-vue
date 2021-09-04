@@ -1,5 +1,7 @@
 <template>
-    综合信息统计
+   <div>
+       综合信息统计
+   </div>
 </template>
 
 <script>

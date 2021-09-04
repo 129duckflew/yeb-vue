@@ -78,7 +78,7 @@
                        */
                       window.sessionStorage.setItem('tokenStr',resp.obj.tokenHead+resp.obj.token);
                       console.log(resp);
-                      this.$router.replace({name:'Home'})
+                      this.$router.replace({path:'/home'})
                     }
                     else {
                     }
