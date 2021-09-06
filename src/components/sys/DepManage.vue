@@ -1,12 +1,12 @@
 <template>
     <div>
-        高级资料
+        部门管理
     </div>
 </template>
 
 <script>
     export default {
-        name: "EmpAdv"
+        name: "DepManage"
     }
 </script>
 

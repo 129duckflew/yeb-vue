@@ -77,8 +77,9 @@
                        * 响应存在
                        */
                       window.sessionStorage.setItem('tokenStr',resp.obj.tokenHead+resp.obj.token);
-                      console.log(resp);
-                      this.$router.replace({path:'/home'})
+
+                      let path=this.$route.query.redirect;
+                      this.$router.replace((path==='/'||path===undefined)?'/home':path);
                     }
                     else {
                     }
