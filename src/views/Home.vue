@@ -15,8 +15,8 @@
                     <el-dropdown-menu slot="dropdown" >
                         <el-dropdown-item command="userCenter">个人中心</el-dropdown-item>
                         <el-dropdown-item  command="setting">设置</el-dropdown-item>
-                        <el-dropdown-item  command="logout">
-                            <el-button type="text" @click="open">退出登录</el-button>
+                        <el-dropdown-item  command="logout" divided>
+                          退出登录
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>

@@ -29,10 +29,11 @@
                         label="创建时间"
                         width="120 ">
                 </el-table-column>
-                <el-table-column
-                        prop="enabled"
-                        label="是否启用"
-                        width="120 ">
+                <el-table-column label="启用" width="150">
+                    <template slot-scope="scope">
+                        <el-tag v-if="scope.row.enabled" type="success">已经启用</el-tag>
+                        <el-tag v-else type="danger">未启用</el-tag>
+                    </template>
                 </el-table-column>
                 <el-table-column label="操作">
                     <template slot-scope="scope">

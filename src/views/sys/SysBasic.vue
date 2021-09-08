@@ -10,9 +10,6 @@
             <el-tab-pane label="职称管理" name="JobLevelManage">
                 <job-level-manage></job-level-manage>
             </el-tab-pane>
-            <el-tab-pane label="奖惩规则" name="EcManage">
-                <ec-manage></ec-manage>
-            </el-tab-pane>
             <el-tab-pane label="权限组" name="PermisManage">
                 <permis-manage></permis-manage>
             </el-tab-pane>
@@ -30,12 +27,11 @@
         name: "SysBasic",
         data(){
             return {
-                activeName: 'PosManage'
+                activeName: 'DepManage'
             }
         },
         components:{
             DepManage,
-            EcManage,
             PermisManage,
             PosManage,
             JobLevelManage

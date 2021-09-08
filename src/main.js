@@ -23,15 +23,12 @@ Vue.prototype.getRequest=getRequest;
 Vue.prototype.putRequest=putRequest;
 
 
-Vue.use(ElementUI);
+Vue.use(ElementUI,{size:'small'});
 
-const originalPush = Router.prototype.push
-Router.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
-}
+
 
 router.beforeEach((to,from,next)=>{
-  if (sessionStorage.getItem('tokenStr'))
+  if (window.sessionStorage.getItem('tokenStr'))
   {
     initMenu(router,store);
     if (!window.sessionStorage.getItem('user'))
@@ -40,7 +37,6 @@ router.beforeEach((to,from,next)=>{
         if (resp)
         {
           window.sessionStorage.setItem('user',JSON.stringify(resp))
-          next();
         }
       })
     }
@@ -52,7 +48,7 @@ router.beforeEach((to,from,next)=>{
       next();
     else
     {
-      next('/?redirect'+to.path)
+      next('/?redirect='+to.path)
     }
   }
 });

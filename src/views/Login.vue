@@ -21,6 +21,8 @@
 </template>
 
 <script>
+    import {getRequest} from "../utils/axiosUtils";
+
     export default {
         name: "Login",
         data() {
@@ -77,11 +79,16 @@
                        * 响应存在
                        */
                       window.sessionStorage.setItem('tokenStr',resp.obj.tokenHead+resp.obj.token);
-
+                      this.getRequest("/admin/info").then(resp=>{
+                        if (resp)
+                          window.sessionStorage.setItem('user',JSON.stringify(resp))
+                      });
                       let path=this.$route.query.redirect;
+                      console.log('要去的路径'+path);
                       this.$router.replace((path==='/'||path===undefined)?'/home':path);
                     }
                     else {
+                      return false;
                     }
                   })
 
