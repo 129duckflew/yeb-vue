@@ -767,9 +767,11 @@
                 });
             },
             doAddEmp() {
+                console.log("发送添加请求")
                 if (this.emp.id) {
                     this.$refs['empForm'].validate(valid => {
                         if (valid) {
+                            console.log(this.emp)
                             this.putRequest("/employee/basic/", this.emp).then(resp => {
                                 if (resp) {
                                     this.dialogVisible = false;
