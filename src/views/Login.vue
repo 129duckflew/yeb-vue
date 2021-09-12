@@ -83,9 +83,7 @@
                         if (resp)
                           window.sessionStorage.setItem('user',JSON.stringify(resp))
                       });
-                      let path=this.$route.query.redirect;
-                      console.log('要去的路径'+path);
-                      this.$router.replace((path==='/'||path===undefined)?'/home':path);
+                      this.$router.replace('/home');
                     }
                     else {
                       return false;

@@ -121,7 +121,7 @@
                     }
                 }
                 if (flag) {
-                    let url = '/system/admin/' + admin.id;
+                    let url = '/system/admin/role?adminId=' + admin.id;
                     this.selectedRoles.forEach(sr => {
                         url += '&rids=' + sr;
                     });
@@ -132,17 +132,37 @@
                     });
                 }
             },
+            initAllRoles()
+            {
+                this.getRequest("/system/basic/role/").then(resp => {
+                    if (resp) {
+                        this.allroles = resp;
+                    }
+                })
+            },
             showPop(admin) {
+                this.initAllRoles();
                 let roles = admin.roles;
                 this.selectedRoles = [];
                 roles.forEach(r => {
                     this.selectedRoles.push(r.id);
                 })
+                console.log(this.selectedRoles )
             },
             enabledChange(admin) {
                 //delete admin.roles;
-                delete admin.roles;
-                this.putRequest("/system/admin/", admin).then(resp => {
+                let postAdmin={
+                    address: admin.address,
+                    enabled: admin.enabled,
+                    id: admin.id,
+                    name: admin.name,
+                    phone: admin.phone,
+                    remark: admin.remark,
+                    telephone: admin.telephone,
+                    userFace: admin.userFace,
+                }
+                console.log(admin)
+                this.putRequest("/system/admin/", postAdmin).then(resp => {
                     if (resp) {
                         this.initAdmins();
                     }

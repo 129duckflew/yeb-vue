@@ -1,6 +1,8 @@
 import {getRequest} from "./axiosUtils";
 
 export const initMenu = (router, store) => {
+    console.log('store.state.routes============');
+    console.log(store.state.routes)
     if (store.state.routes.length > 0) {
         return;
     }
@@ -11,6 +13,7 @@ export const initMenu = (router, store) => {
             store.commit('initRoutes', fmtRoutes);
         }
     })
+
 }
 export const formatRoutes = (routes) => {
     let fmRoutes = [];
