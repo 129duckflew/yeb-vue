@@ -1,19 +1,6 @@
-# yeb
+# Yeb-数据库课程设计（前端项目）
 
-## Project setup
-```
-npm install
-```
+基于江南一点雨的Vhr项目二次开发 技术栈是SpringBoot+Vue
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+后端项目地址: https://github.com/129duckflew/yeb.git
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
